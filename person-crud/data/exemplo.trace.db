@@ -3218,3 +3218,6 @@ update pessoas set data_nascimento=?, main_adress_id=?, pessoa_nome=? where pess
 2023-01-13 14:41:51 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "MAIN_ADRESS_ID BINARY VARYING(255)": "X'aced000573720022636f6d2e6170692e706572736f6e637275642e6d6f64656c732e456e646572... (598)"; SQL statement:
 update pessoas set data_nascimento=?, main_adress_id=?, pessoa_nome=? where pessoa_id=? [22001-214]
+2023-01-13 14:51:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "MAIN_ADRESS_ID BINARY VARYING(255)": "X'aced000573720022636f6d2e6170692e706572736f6e637275642e6d6f64656c732e456e646572... (596)"; SQL statement:
+update pessoas set data_nascimento=?, main_adress_id=?, pessoa_nome=? where pessoa_id=? [22001-214]

@@ -69,9 +69,6 @@ public class PessoaController {
     @PutMapping(path = "/changeMainAdress/{pessoaId}")
 	public ResponseEntity<PessoaDto> changePersonMainAdress(@RequestBody Endereco mainAdress, @PathVariable("pessoaId") Long pessoaId){
         ResponseEntity<PessoaDto> responseEntity = new ResponseEntity<PessoaDto>(new PessoaDto(), HttpStatus.CONTINUE);
-
-	    
-        
         try {
             PessoaDto pessoa = this.pessoaService.changePersonMainAdress(mainAdress, pessoaId);    
             if(pessoa != null){

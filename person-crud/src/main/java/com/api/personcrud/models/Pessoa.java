@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -30,7 +32,8 @@ public class Pessoa implements Serializable {
     @Column(nullable = false, name = "data_nascimento")
     private Date dtNascimento;
     
-    @Column(nullable = true, name = "main_adress_id")
+    @OneToOne
+    @JoinColumn(nullable = true, name = "main_adress_id", referencedColumnName = "id")
     private Endereco mainAdress;
 
     public Pessoa() {

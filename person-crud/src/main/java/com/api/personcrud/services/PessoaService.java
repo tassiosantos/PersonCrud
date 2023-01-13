@@ -95,9 +95,10 @@ public class PessoaService{
             }
         }else{
             mainAdress.setPessoa(pessoa);
-            mainAdress =    this.enderecoRepository.save(mainAdress);
-            pessoa.setMainAdress(mainAdress);       
-            this.pessoaRespository.save(pessoa);     
+            mainAdress = this.enderecoRepository.save(mainAdress);
+            pessoa.setMainAdress(mainAdress);
+            System.out.println(mainAdress.getId());
+            pessoa = this.pessoaRespository.save(pessoa);     
         }
         PessoaDto pessoaDto = new PessoaDto();
         pessoaDto.setNmPessoaDto(pessoa.getNmPessoa());
