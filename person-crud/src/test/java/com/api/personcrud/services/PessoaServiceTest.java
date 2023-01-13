@@ -48,14 +48,10 @@ public class PessoaServiceTest{
             
         Mockito.when(this.pessoaService.createPessoa(any(Pessoa.class))).thenReturn(mock(Pessoa.class));
         
-        Pessoa pessoa2 = new Pessoa("Dherik", Date.valueOf("2011-12-03"));
-        System.out.println(pessoa2.getNmPessoa() + " " + pessoa2.getDtNascimento());
+        Pessoa pessoa = new Pessoa("Joao", Date.valueOf("2011-12-03"));
+        System.out.println(pessoa.getNmPessoa() + " " + pessoa.getDtNascimento());
         
-        Pessoa pessoa = pessoaService.createPessoa(pessoa2);
-
-        // System.out.println(pessoa.getNmPessoa() + " " + pessoa.getDtNascimento());
-
-        assertEquals("Dherik", pessoa2.getNmPessoa());
+        assertEquals("Dherik", pessoa.getNmPessoa());
 
     }
 
@@ -66,14 +62,9 @@ public class PessoaServiceTest{
             
         Mockito.when(this.pessoaService.updatePessoa(any(Pessoa.class))).thenReturn(mock(Pessoa.class));
         
-        Pessoa pessoa2 = new Pessoa("Dherik", Date.valueOf("2011-12-03"));
-        System.out.println(pessoa2.getNmPessoa() + " " + pessoa2.getDtNascimento());
-        
-        Pessoa pessoa = pessoa2;
-
-        System.out.println(pessoa.getNmPessoa() + " " + pessoa.getDtNascimento());
-
-        assertEquals("Dherik", pessoa2.getNmPessoa());
+        Pessoa pessoa = new Pessoa("Jonas", Date.valueOf("2011-12-03"));
+      
+        assertEquals("Dherik", pessoa.getNmPessoa());
 
     }
 

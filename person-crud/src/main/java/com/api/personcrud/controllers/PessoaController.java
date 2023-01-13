@@ -5,9 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,9 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.personcrud.Dtos.PessoaDto;
+import com.api.personcrud.models.Endereco;
 import com.api.personcrud.models.Pessoa;
 import com.api.personcrud.services.EnderecoService;
 import com.api.personcrud.services.PessoaService;
@@ -31,6 +30,7 @@ public class PessoaController {
     
     private final PessoaService pessoaService;
     private final EnderecoService enderecoService;
+
 
     public PessoaController(PessoaService pessoaService, EnderecoService enderecoService){
         this.pessoaService = pessoaService;
@@ -54,13 +54,41 @@ public class PessoaController {
         return this.pessoaService.getPessoaById(pessoaId);
     }
 
+    @GetMapping(path = "/mainAdress/{pessoaId}")
+    public Endereco getMainAdress(@PathVariable("pessoaId") Long pessoaId){
+        return this.pessoaService.getPessoaById(pessoaId).getMainAdress();
+    }
     
     @PutMapping(path = "/{pessoaId}")
 	public Pessoa updatePessoa(@RequestBody Pessoa changedPessoa){
-        System.out.println(changedPessoa);    
 	    Pessoa pessoa = this.pessoaService.updatePessoa(changedPessoa);
     
 	    return pessoa;
+	}
+
+    @PutMapping(path = "/changeMainAdress/{pessoaId}")
+	public ResponseEntity<PessoaDto> changePersonMainAdress(@RequestBody Endereco mainAdress, @PathVariable("pessoaId") Long pessoaId){
+        ResponseEntity<PessoaDto> responseEntity = new ResponseEntity<PessoaDto>(new PessoaDto(), HttpStatus.CONTINUE);
+
+	    
+        
+        try {
+            PessoaDto pessoa = this.pessoaService.changePersonMainAdress(mainAdress, pessoaId);    
+            if(pessoa != null){
+                responseEntity = ResponseEntity.status(HttpStatus.OK).body(pessoa);
+            }else{
+                responseEntity = ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(null);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+        return responseEntity;
+
+
 	}
 
 }

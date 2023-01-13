@@ -55,11 +55,11 @@ public class Pessoa implements Serializable {
 
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public String getNmPessoa() {
-        return nmPessoa;
+        return this.nmPessoa;
     }
 
     public void setNmPessoa(String nmPessoa) {
@@ -67,7 +67,7 @@ public class Pessoa implements Serializable {
     }
 
     public Date getDtNascimento() {
-        return dtNascimento;
+        return this.dtNascimento;
     }
 
     public void setDtNascimento(Date dtNascimento) {
@@ -75,7 +75,7 @@ public class Pessoa implements Serializable {
     }
 
     public Endereco getMainAdress() {
-        return mainAdress;
+        return this.mainAdress;
     }
 
     public void setMainAdress(Endereco mainAdress) {
@@ -84,8 +84,8 @@ public class Pessoa implements Serializable {
 
     @Override
     public String toString() {
-        return "Pessoa [id=" + id + ", nmPessoa=" + nmPessoa + ", dtNascimento=" + dtNascimento + ", mainAdress="
-                + mainAdress + "]";
+        return "Pessoa [id=" + this.id + ", nmPessoa=" + this.nmPessoa + ", dtNascimento=" + this.dtNascimento + ", mainAdress="
+                + this.mainAdress + "]";
     }
 
 }

@@ -23,8 +23,8 @@ public class EnderecoService {
 
 
 
-    public Endereco getEnderecoById(long enderecoId){
-        return this.enderecoRepository.findById(enderecoId);
+    public Endereco getEnderecoById(Long enderecoId){
+        return this.enderecoRepository.getReferenceById(enderecoId);
     }
 
     public List<Endereco> getAll(Long id) {

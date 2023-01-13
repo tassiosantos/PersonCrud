@@ -1,10 +1,12 @@
 package com.api.personcrud.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.personcrud.Dtos.EnderecoDto;
 import com.api.personcrud.models.Endereco;
+import com.api.personcrud.models.Pessoa;
 import com.api.personcrud.services.EnderecoService;
 
 @RestController()
@@ -33,7 +37,6 @@ public class EnderecoController {
 
     @PostMapping(path = "/new/{pessoaId}")
     public ResponseEntity<Endereco> createEndereco(@RequestBody @Valid Endereco endereco, @PathVariable("pessoaId") Long pessoaId){
-        System.out.println(pessoaId);
         ResponseEntity<Endereco> responseEntity = new ResponseEntity<Endereco>(endereco, HttpStatus.CONTINUE);
         try {
             Endereco novoEndereco = this.enderecoService.createEndereco(endereco, pessoaId);
@@ -55,12 +58,25 @@ public class EnderecoController {
 
 
     @GetMapping(path = "/getAll/{pessoaId}")
-    public ResponseEntity<List<Endereco>> getAll(@PathVariable("pessoaId") Long pessoaId){
-        ResponseEntity<List<Endereco>> responseEntity = ResponseEntity.status(HttpStatus.CONTINUE).body(null);
+    public ResponseEntity<List<EnderecoDto>> getAll(@PathVariable("pessoaId") Long pessoaId){
+        ResponseEntity<List<EnderecoDto>> responseEntity = ResponseEntity.status(HttpStatus.CONTINUE).body(null);
         try {
+            List<EnderecoDto> enderecosDto =  new ArrayList<EnderecoDto>();
             List<Endereco> enderecos = this.enderecoService.getAll(pessoaId);
             if(enderecos != null){
-                responseEntity = ResponseEntity.status(HttpStatus.OK).body(enderecos);
+                
+                for(Endereco endereco: enderecos){
+                    EnderecoDto enderecoDto = new EnderecoDto();
+                    enderecoDto.setCep(endereco.getCep());
+                    enderecoDto.setCidade(endereco.getCidade());
+                    enderecoDto.setId(endereco.getId());
+                    enderecoDto.setLogradouro(endereco.getLogradouro());
+                    enderecoDto.setNumero(endereco.getNumero());
+                    
+                    enderecosDto.add(enderecoDto);
+
+                }
+                responseEntity = ResponseEntity.status(HttpStatus.OK).body(enderecosDto);
             }else{
                 responseEntity = ResponseEntity.status(HttpStatus.NO_CONTENT).body(null);
             }

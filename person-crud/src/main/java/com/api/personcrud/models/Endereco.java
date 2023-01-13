@@ -52,37 +52,37 @@ public class Endereco implements Serializable {
         return serialVersionUID;
     }
     public Long getId() {
-        return id;
+        return this.id;
     }
     public void setId(Long id) {
         this.id = id;
     }
     public Pessoa getPessoa() {
-        return pessoa;
+        return this.pessoa;
     }
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
     public String getLogradouro() {
-        return logradouro;
+        return this.logradouro;
     }
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
     public String getCep() {
-        return cep;
+        return this.cep;
     }
     public void setCep(String cep) {
         this.cep = cep;
     }
     public String getNumero() {
-        return numero;
+        return this.numero;
     }
     public void setNumero(String numero) {
         this.numero = numero;
     }
     public String getCidade() {
-        return cidade;
+        return this.cidade;
     }
     public void setCidade(String cidade) {
         this.cidade = cidade;
@@ -90,8 +90,8 @@ public class Endereco implements Serializable {
 
     @Override
     public String toString() {
-        return "Endereco [id=" + id + ", cdPessoa=" + pessoa + ", logradouro=" + logradouro + ", cep=" + cep
-                + ", numero=" + numero + ", cidade=" + cidade + "]";
+        return "Endereco [id=" + this.id + ", cdPessoa=" + this.pessoa + ", logradouro=" + this.logradouro + ", cep=" + this.cep
+                + ", numero=" + this.numero + ", cidade=" + this.cidade + "]";
     }
 
 
