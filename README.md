@@ -18,9 +18,7 @@ Para verificar o funcionamento da API, rodando o código localmente, a aplicaç�
 http://localhost:3000/
 
 A aplicação estará rodando também na AWS:
-http://ec2-18-118-1-10.us-east-2.compute.amazonaws.com:3000
-
-
+http://ec2-18-117-192-35.us-east-2.compute.amazonaws.com:3000/
 
 Funcionamento da API:
 
