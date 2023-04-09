@@ -36,7 +36,7 @@ public class PessoaServiceTest{
     
     
     @BeforeEach
-    void classesTeste() {
+    void objetosTeste() {
         pessoa1 = new Pessoa("João", LocalDate.of(2001,07,03));
         pessoa2 = new Pessoa("Maria", LocalDate.of(2003,12,03));
 
