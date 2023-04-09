@@ -1,0 +1,11 @@
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/controllers/EnderecoController.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/models/Pessoa.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/repositories/EnderecoRepository.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/models/Endereco.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/services/EnderecoService.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/repositories/PessoaRepository.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/controllers/ControladorExcessoes.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/PersonCrudApplication.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/controllers/ErrosController.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/services/PessoaService.java
+/home/tassio/Documents/PersonCrud/src/main/java/com/api/personcrud/controllers/PessoaController.java
